@@ -45,7 +45,9 @@
         <div class="col-md-4">List of recipes from category
           <div id="listbycategory"></div>
         </div>
-        <div class="col-md-5">Detail</div>
+        <div class="col-md-5">Detail
+          <div id="detailrecipe"></div>
+        </div>
       </div>
   </div>
   <script>
@@ -74,7 +76,6 @@
 
        // get list by category
        function getListByCategory(input){
-         console.log('input awal--->', input)
          $.ajax({
            method: 'POST',
            url: 'http://localhost:3000/recipes/listbycategory',
@@ -84,7 +85,6 @@
          })
          .then(results =>{
            let recipelist = results.data.meals
-          //  console.log('Hasil------>', recipelist)
            $('#listbycategory').empty()
            recipelist.forEach(recipecategory =>{
              $('#listbycategory').append(
@@ -92,14 +92,36 @@
                   <img class="card-img-top" src="${recipecategory.strMealThumb}" width ="35px">
                   <div class="card-body">
                     <h5 class="card-title">${recipecategory.strMeal}</h5>
-                    <a href="#" class="btn btn-primary">Get Details</a>
+                    <button class="btn btn-primary" onclick="getDetail(${recipecategory.idMeal})">Get Details</button>
                   </div>
                 </div>`
              )
            })
          })
          .catch(error=>{
-          console.log('ERROR Listy by Categories: ',error)
+          console.log('ERROR Listy by Categories: ', error)
+         })
+       }
+
+       // default list of category chicken
+       // beginning page loading
+       getListByCategory('Beef')
+
+       // getdetail information
+       function getDetail(input){
+         $.ajax({
+           method: 'POST',
+           url: 'http://localhost:3000/recipes/detail',
+           data:{
+             mealid: input
+           }
+         })
+         .then(result =>{
+           let detailrecipe = result.data[0]
+           console.log('Hasil--->', detailrecipe )
+         })
+         .catch(error=>{
+           console.log('ERROR Detail: ', error)
          })
        }
 
