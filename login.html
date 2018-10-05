@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="521685363071-7id4qnmbfucdqomdjj3aqs4bndtnti9r.apps.googleusercontent.com">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <div class="ui container text">
+        <div class="ui large form segment" style="margin-top:200px;">
+            <h2>Login :</h2>
+            <div class="ui left icon fluid input">
+                <i class="user alternate icon"></i>
+                <input type="text" placeholder="Your Email" id="Email">
+            </div>
+            <br>
+            <div class="ui left icon fluid input">
+                <i class="lock alternate icon"></i>
+                <input type="password" placeholder="Password" id="password">
+            </div>
+            <div class="ui grid" style="margin-top: 10px;">
+                <div class="ui two wide right floated column" style="margin-right:140px;">
+                    <div id="my-signin2"></div>
+                </div>
+                <div class="ui two wide column">
+                    <div class="ui button">Login</div>
+                </div>
+                <div class="ui two wide column" style="margin-right:30px;">
+                    <div class="ui button">Signup</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function onSuccess(googleUser) {
+            console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+            $.ajax({
+            url: 'http://localhost:3000/login/google',
+            method: 'get',
+            headers: {
+                token: googleUser.Zi.id_token
+            }
+            })
+            .done(response => {
+                localStorage.setItem('token', response.token)
+                window.location = './resto.html'
+                // console.log(response.token)
+            })
+            .fail(err => {
+                console.log(err)
+            })
+        }
+        function onFailure(error) {
+            console.log(error);
+        }
+
+        function renderButton() {
+            gapi.signin2.render('my-signin2', {
+            'scope': 'profile email',
+            'width': 210,
+            'height': 35,
+            'longtitle': true,
+            'theme': 'dark',
+            'onsuccess': onSuccess,
+            'onfailure': onFailure
+            });
+        }
+    </script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
+</html>

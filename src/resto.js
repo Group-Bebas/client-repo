@@ -1,3 +1,10 @@
+$(document).ready(() => {
+    let token = localStorage.getItem('token')
+    if (!token) {
+        window.location = './login.html'
+    }
+})
+
 $(function(){
 
     $.ajax({
