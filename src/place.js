@@ -40,7 +40,10 @@ function loadNearby (query) {
     $('#cardsPlaces').empty()
     $.ajax({
         url:`http://localhost:3000/place/${pickedPlace}/${locationUser.lat}/${locationUser.lng}`,
-        method: 'get'
+        method: 'get',
+        headers: {
+            token: localStorage.getItem('token')
+          }
     })
       .done(response => {
         let data = response.data.results
@@ -127,6 +130,9 @@ function matrixDistance(name) {
     $.ajax({
       url: `http://localhost:3000/matrix/distance`,
       method:'post',
+      headers: {
+        token: localStorage.getItem('token')
+      },
       data: {
         address: name,
         lat: locationUser.lat,

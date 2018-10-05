@@ -13,10 +13,27 @@
 </head>
 <body>
   <div class="ui segment">
-    <h1>hangout</h1>
+    <div class="ui grid">
+      <div class="ui two wide column">
+        <h1>hangout</h1>
+      </div>
+      <div class="ui one wide column" style="margin-top:5px;">
+        <a href="./resto.html"><h3>Home</h3></a>
+      </div>
+      <div class="ui one wide column" style="margin-top:5px;">
+        <a href="./recipe.html"><h3>Recipe</h3></a>
+      </div>
+      <div class="ui one wide column" style="margin-top:5px;">
+        <a href="./weather.html"><h3>Weather</h3></a>
+      </div>
+      <div class="ui one wide column" style="margin-top:5px;">
+        <a href="./index.html"><h3>Places</h3></a>
+      </div>
+    </div>
+    <button class="ui right floated button" onclick="logout()">Logout</button>
   </div>
   <div class="ui container">
-    
+      
   </div>
   <div class="ui grid" style="margin-top:10px;">
     <div class="ui eleven wide column" style="margin: auto">
@@ -75,7 +92,12 @@
       <div class="ui deny button">OK</div>
     </div>
   </div>
-
+  <script>
+    function logout() {
+      localStorage.removeItem('token')
+      window.location = './login.html'
+    }
+  </script>
   <script src="./src/place.js"></script>
 </body>
 </html>

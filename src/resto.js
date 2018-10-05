@@ -55,8 +55,8 @@ $(function(){
         });
      })
      .fail(err=>{
-         console.log('FAILLLLLLL')
          console.log(err)
+         console.log('FAILLLLLLL')
      })
 
 
