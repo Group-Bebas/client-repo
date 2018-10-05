@@ -50,7 +50,7 @@
             })
             .done(response => {
                 localStorage.setItem('token', response.token)
-                window.location = './index.html'
+                window.location = './resto.html'
                 // console.log(response.token)
             })
             .fail(err => {

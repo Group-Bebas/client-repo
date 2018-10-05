@@ -35,6 +35,12 @@
 
     <script>
      $(document).ready(function(){    
+        $(document).ready(() => {
+            let token = localStorage.getItem('token')
+            if (!token) {
+                window.location = './login.html'
+            }
+        })
         $('#weather_sub').click(function () {
           if (navigator.geolocation) {          
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -74,5 +80,6 @@
     });
 
         </script>
+
 </body>
 </html>
