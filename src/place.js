@@ -10,7 +10,7 @@ let locationUser = {
     lat: '',
     lng: ''
 }
-let pickedPlace = 'mall'
+// let pickedPlace = 'park'
 
 function getLocationUser () {
     if (navigator.geolocation) {
@@ -22,7 +22,7 @@ function getLocationUser () {
             locationUser.lat = position.coords.latitude;
             locationUser.lng = position.coords.longitude;
             loadNearby()
-            console.log(locationUser)
+            // console.log(locationUser)
         }, function(error) {
             clearTimeout(location_timeout);
             console.log('failed to get location')
@@ -32,7 +32,12 @@ function getLocationUser () {
     }
 }
 
-function loadNearby () {
+function loadNearby (query) {
+    let pickedPlace = 'mall'
+    if (query) {
+        pickedPlace = query
+    }
+    $('#cardsPlaces').empty()
     $.ajax({
         url:`http://localhost:3000/place/${pickedPlace}/${locationUser.lat}/${locationUser.lng}`,
         method: 'get'
@@ -94,7 +99,7 @@ function loadNearby () {
                 `)
             }
         })
-        console.log(response.data.results)
+        // console.log(response.data.results)
       })
       .fail(err => {
         console.log(err)
@@ -129,7 +134,7 @@ function matrixDistance(name) {
       }
     })
       .done(data => {
-        console.log(data.data[0].elements[0])
+        // console.log(data.data[0].elements[0])
         $('#placeModalAddress').append(`
             <h3>distance: ${data.data[0].elements[0].distance.text}</h3> 
             <h3>duration: ${data.data[0].elements[0].duration.text}</h3> 

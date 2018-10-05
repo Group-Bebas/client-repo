@@ -49,8 +49,9 @@
             }
             })
             .done(response => {
-                // localStorage.setItem('token', response.token)
-                console.log(response.token)
+                localStorage.setItem('token', response.token)
+                window.location = './index.html'
+                // console.log(response.token)
             })
             .fail(err => {
                 console.log(err)
