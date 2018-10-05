@@ -57,8 +57,19 @@ $(function(){
     $("#search-form").submit(function(){
         let value = $('input[name=search]').val()
         let query = value.replace(' ', '-')
-        alert(query)
+        // alert(query)
+        $.ajax({
+            type: 'POST',
+            url: `http://localhost:3000/restaurant/location/${query}`
+        })
+        .done(function(data) {
+            console.log('done', data); 
+        })
+        .fail(function(err) {
+            console.log('fail', err)
+        })
 
+        event.preventDefault();
     })
 
 
