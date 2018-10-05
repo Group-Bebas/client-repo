@@ -18,34 +18,66 @@
       rgba(0, 255, 0, 0.226)
     ), url(src/img/contemporary_china.png);
     }
+    .form-filter {
+        background: 
+        linear-gradient(
+            grey,
+            white
+        );
+    }
+    .price-filter {
+        position: relative;
+        left: 850px;
+    }
     .navbar {
         padding-top: 20px;
+    }
+    .nav-link {
+        font-size: 25px;
     }
     </style>
 </head>
 <body>
     <header>
-            <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
-                <a class="navbar-brand" href="#">Le Restaurant</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            
-                <div class="collapse navbar-collapse" id="navbarsExample02">
-                    <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    </ul>
-                    <form action="#" method="POST" class="form-inline my-2 my-md-0" id="search-form">
-                    <input class="form-control" type="text" name="search" placeholder="Search Place">
-                    <input type="submit" class="btn btn-danger">
-                    </form>
+        <nav class="navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Le Restaurant</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarsExample02">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                </ul>
+                <form action="#" method="POST" class="form-inline my-2 my-md-0" id="search-form">
+                <input class="form-control" type="text" name="search" placeholder="Search Place">
+                <input type="submit" class="btn btn-danger">
+                </form>
+            </div>
+        </nav>
+        <!-- filter form -->
+        <form action="#" method="post" class="form-filter">
+            <div class="row">
+                <div class="col-md-3 price-filter">
+                    <label for="sort"><span style="font-size:20px"><strong>Sort By:</strong></span></label>
+                    <select name="sort" id="" class="form-control">
+                        <optgroup label="Rating">
+                                <option value="r-desc" selected>High to Low</option>
+                                <option value="r-asc">Low to High</option>
+                        </optgroup>
+                        <optgroup label="Price">
+                                <option value="p-desc">High to Low</option>
+                                <option value="p-asc">Low to High</option>
+                        </optgroup>
+                    </select>
                 </div>
-            </nav>
+            </div>
+        </form>
     </header><br>
     <main>
         
