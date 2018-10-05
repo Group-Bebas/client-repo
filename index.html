@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+  <div class="ui grid">
+    <div class="ui eleven wide column" style="margin: auto">
+      <div class="ui link cards" id="cardsPlaces">
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui modal places">
+    <div class="header" id="placeModalName">
+      <i class="ui building icon"></i>
+    </div>
+    <div class="image content">
+      <div class="image">
+        <img id="photoPlace" src="" alt="">
+      </div>
+      <div class="description">
+        <h3>Address :</h3>
+        <h3 id="placeModalAddress"></h3>
+        
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui deny button">Dismiss</div>
+      <div class="ui deny button">OK</div>
+    </div>
+  </div>
+
+  <script src="./src/place.js"></script>
+</body>
+</html>
