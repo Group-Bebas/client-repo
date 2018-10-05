@@ -119,6 +119,47 @@
          .then(result =>{
            let detailrecipe = result.data[0]
            console.log('Hasil--->', detailrecipe )
+           $('#detailrecipe').empty()
+           $('#detailrecipe').append(
+            `<div>
+              <h3><a href="${detailrecipe.strSource}" target="_blank">${detailrecipe.strMeal}</a></h3>
+              <img src="${detailrecipe.strMealThumb}" width ="80px">
+              <hr>
+              <a href="${detailrecipe.strYoutube}" target="_blank">Watch This Video</a>
+              <hr>
+              <h5>Category: ${detailrecipe.strCategory}</h5>
+              <br/>
+              Tags: ${detailrecipe.strTags}
+              <hr>
+              <br/>
+              <p><b>Instruction:</b></p>
+              <br/>
+              <p>${detailrecipe.strInstructions}</p>
+              <br/>
+              <hr>
+              <p><b>Ingredients: </b></p>  
+              <p>${detailrecipe.strIngredient1}  ${detailrecipe.strMeasure1}</p>
+              <p>${detailrecipe.strIngredient2}  ${detailrecipe.strMeasure2}</p>
+              <p>${detailrecipe.strIngredient3}  ${detailrecipe.strMeasure3}</p>
+              <p>${detailrecipe.strIngredient4}  ${detailrecipe.strMeasure4}</p>
+              <p>${detailrecipe.strIngredient5}  ${detailrecipe.strMeasure5}</p>
+              <p>${detailrecipe.strIngredient6}  ${detailrecipe.strMeasure6}</p>
+              <p>${detailrecipe.strIngredient7}  ${detailrecipe.strMeasure7}</p>
+              <p>${detailrecipe.strIngredient8}  ${detailrecipe.strMeasure8}</p>
+              <p>${detailrecipe.strIngredient9}  ${detailrecipe.strMeasure9}</p>
+              <p>${detailrecipe.strIngredient10}  ${detailrecipe.strMeasure10}</p>
+              <p>${detailrecipe.strIngredient11}  ${detailrecipe.strMeasure11}</p>
+              <p>${detailrecipe.strIngredient12}  ${detailrecipe.strMeasure12}</p>
+              <p>${detailrecipe.strIngredient13}  ${detailrecipe.strMeasure13}</p>
+              <p>${detailrecipe.strIngredient14}  ${detailrecipe.strMeasure14}</p>
+              <p>${detailrecipe.strIngredient15}  ${detailrecipe.strMeasure15}</p>
+              <p>${detailrecipe.strIngredient16}  ${detailrecipe.strMeasure16}</p>
+              <p>${detailrecipe.strIngredient17}  ${detailrecipe.strMeasure17}</p>
+              <p>${detailrecipe.strIngredient18}  ${detailrecipe.strMeasure18}</p>
+              <p>${detailrecipe.strIngredient19}  ${detailrecipe.strMeasure19}</p>
+              <p>${detailrecipe.strIngredient20}  ${detailrecipe.strMeasure20}</p>
+            </div>`
+           )
          })
          .catch(error=>{
            console.log('ERROR Detail: ', error)
