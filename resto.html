@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="521685363071-7id4qnmbfucdqomdjj3aqs4bndtnti9r.apps.googleusercontent.com">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css" integrity="sha256-ncjDAd2/rm/vaNTqp7Kk96MfSeHACtbiDU9NWKqNuCI=" crossorigin="anonymous" />
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>  
+    <title>For Foodies</title>
+    <style>
+    body .ui{
+        background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(255, 0, 0, 0.767), 
+      rgba(0, 255, 0, 0.226)
+    ), url(src/img/contemporary_china.png);
+    }
+    .form-filter {
+        background: 
+        linear-gradient(
+            grey,
+            white
+        );
+    }
+    .price-filter {
+        position: relative;
+        left: 850px;
+    }
+    .navbar {
+        padding-top: 20px;
+    }
+    .nav-link {
+        font-size: 25px;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Le Restaurant</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarsExample02">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="./resto.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./recipe.html">Recipe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./weather.html">weather</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Places</a>
+                </li>
+                
+                </ul>
+                <form class="form-inline mt-2 mt-md-0">
+                        <li class="nav-item">
+                               <h3><a class="nav-link" onclick="logout()" style="color: white">logout</a></h3>
+                        </li>
+                  </form>
+            </div>
+        </nav>
+        <!-- filter form -->
+        <form action="#" method="post" class="form-filter">
+            <div class="row">
+                <div class="col-md-3 price-filter">
+                    <label for="sort"><span style="font-size:20px"><strong>Sort By:</strong></span></label>
+                    <select name="sort" id="" class="form-control">
+                        <optgroup label="Rating">
+                                <option value="r-desc" selected>High to Low</option>
+                                <option value="r-asc">Low to High</option>
+                        </optgroup>
+                        <optgroup label="Price">
+                                <option value="p-desc">High to Low</option>
+                                <option value="p-asc">Low to High</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </header><br>
+    <main>
+        
+        <div class="ui grid">
+            <div class="ui eleven wide column" style="margin: 80px auto;">
+                <div class="ui link cards">
+                    <div class="x" id="x"></div>
+                    <div class="ui special cards" id="cards-template">
+                                 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+           
+    </main>
+
+    <script>
+        $(document).ready(() => {
+            let token = localStorage.getItem('token')
+            if (!token) {
+                window.location = './login.html'
+            }
+        })
+        function logout() {
+            localStorage.removeItem('token')
+            window.location = './login.html'
+        }
+    </script>
+<!-- test -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js" integrity="sha256-0gIvTkdsp0OOeV8tx3UTdi3ehppGwZbzQMvZJYhbzsE=" crossorigin="anonymous"></script>
+    <script src="./src/resto.js"></script>
+</body>
+</html>
