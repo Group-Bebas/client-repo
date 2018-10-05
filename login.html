@@ -40,7 +40,7 @@
     </div>
     <script>
         function onSuccess(googleUser) {
-            console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+            // console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
             $.ajax({
             url: 'http://localhost:3000/login/google',
             method: 'get',
@@ -50,6 +50,10 @@
             })
             .done(response => {
                 localStorage.setItem('token', response.token)
+                var auth2 = gapi.auth2.getAuthInstance();
+                    auth2.signOut().then(function () {
+                    console.log('User signed out.');
+                });
                 window.location = './resto.html'
                 // console.log(response.token)
             })
@@ -71,6 +75,10 @@
             'onsuccess': onSuccess,
             'onfailure': onFailure
             });
+        }
+
+        function out() {
+            
         }
     </script>
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>

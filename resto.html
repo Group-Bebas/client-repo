@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="521685363071-7id4qnmbfucdqomdjj3aqs4bndtnti9r.apps.googleusercontent.com">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css" integrity="sha256-ncjDAd2/rm/vaNTqp7Kk96MfSeHACtbiDU9NWKqNuCI=" crossorigin="anonymous" />
 
@@ -48,16 +51,24 @@
             <div class="collapse navbar-collapse" id="navbarsExample02">
                 <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="./resto.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="./recipe.html">Recipe</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./weather.html">weather</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Places</a>
+                </li>
+                
                 </ul>
-                <form action="#" method="POST" class="form-inline my-2 my-md-0" id="search-form">
-                <input class="form-control" type="text" name="search" placeholder="Search Place">
-                <input type="submit" class="btn btn-danger">
-                </form>
+                <form class="form-inline mt-2 mt-md-0">
+                        <li class="nav-item">
+                               <h3><a class="nav-link" onclick="logout()" style="color: white">logout</a></h3>
+                        </li>
+                  </form>
             </div>
         </nav>
         <!-- filter form -->
@@ -102,6 +113,10 @@
                 window.location = './login.html'
             }
         })
+        function logout() {
+            localStorage.removeItem('token')
+            window.location = './login.html'
+        }
     </script>
 <!-- test -->
 
